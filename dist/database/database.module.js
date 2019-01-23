@@ -7,20 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
-const graphql_1 = require("@nestjs/graphql");
-const database_module_1 = require("./database/database.module");
-let AppModule = class AppModule {
+const users_resolver_1 = require("./users/users.resolver");
+let DatabaseModule = class DatabaseModule {
 };
-AppModule = __decorate([
+DatabaseModule = __decorate([
     common_1.Module({
-        imports: [
-            graphql_1.GraphQLModule.forRoot({
-                typePaths: ['./**/**/*.graphql'],
-                context: ({ req }) => ({ req })
-            }),
-            database_module_1.DatabaseModule
-        ],
+        imports: [],
+        providers: [users_resolver_1.UsersResolver]
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], DatabaseModule);
+exports.DatabaseModule = DatabaseModule;
+//# sourceMappingURL=database.module.js.map
